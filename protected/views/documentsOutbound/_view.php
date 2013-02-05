@@ -32,7 +32,12 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('document_type')); ?>:</b>
 	<?php echo CHtml::encode($data->document_type); ?>
 	<br />
-
+        
+        <b><?php echo CHtml::encode($data->getAttributeLabel('log')); ?>:</b>
+	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
+	<br />
+        
+        
 	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('process_type')); ?>:</b>
 	<?php echo CHtml::encode($data->process_type); ?>
