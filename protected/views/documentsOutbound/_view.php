@@ -37,6 +37,7 @@
 	<br />
   
         
+        
 	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('process_type')); ?>:</b>
 	<?php echo CHtml::encode($data->process_type); ?>
