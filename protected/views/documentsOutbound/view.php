@@ -36,5 +36,5 @@ $this->menu=array(
 		'status',
 		'biztalkqueue_id',
 		'sync_date',
-	),
+	), $logID,
 )); ?>
