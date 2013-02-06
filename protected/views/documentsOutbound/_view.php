@@ -34,7 +34,7 @@
 	<br />
         
         <b><?php echo CHtml::encode($data->getAttributeLabel('log')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
+	<?php echo CHtml::link(CHtml::encode($data->id), array($this->getRelations($id))); ?>
 	<br />
         
         

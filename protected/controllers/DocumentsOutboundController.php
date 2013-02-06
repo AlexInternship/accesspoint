@@ -102,6 +102,24 @@ class DocumentsOutboundController extends Controller
 			'model'=>$model,
 		));
 	}
+        
+         public function getRelations($id)
+        {       
+             
+                $relation=  DocumentsOutbound::model()->relations();
+                $array=null;
+                foreach ($relation as $value){
+                    if ($array == null){
+                        $array=array();
+                    }
+                    if(in_array($id, $value)){
+                      array_push($array, $value);  
+                    }          
+                }
+                if($array===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+                return  $array;
+        } 
 
 	/**
 	 * Deletes a particular model.

@@ -13,7 +13,6 @@ $this->menu=array(
 ?>
 
 <h1>Documents Inbounds</h1>
-<h2> Hello world</h2>
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',

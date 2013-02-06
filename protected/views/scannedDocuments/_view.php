@@ -1,6 +1,7 @@
 <?php
 /* @var $this ScannedDocumentsController */
 /* @var $data ScannedDocuments */
+/* @var $data ScannedDocuments */
 ?>
 
 <div class="view">

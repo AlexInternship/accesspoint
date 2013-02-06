@@ -1,4 +1,6 @@
 <?php
+include_once 'logController.php';
+
 
 class DocumentsInboundController extends Controller
 {
@@ -6,6 +8,7 @@ class DocumentsInboundController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
+    
             public $layout='//layouts/column2';
 
 	/**
@@ -63,9 +66,11 @@ class DocumentsInboundController extends Controller
 	public function actionCreate()
 	{
 		$model=new DocumentsInbound;
+                
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
+                
 
 		if(isset($_POST['DocumentsInbound']))
 		{
@@ -157,7 +162,27 @@ class DocumentsInboundController extends Controller
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
 	}
-
+        
+        public function getRelations($id)
+        {       
+                $relation=  DocumentsInbound::model()->relations();
+                $array=null;
+                foreach ($relation as $value){
+                    if ($array == null){
+                        $array=array();
+                    }
+                    if(in_array($id, $value)){
+                      array_push($array, $value);  
+                    }          
+                }
+                if($array===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+                
+                $this->render('log',array(
+			'model'=>$array,
+		));
+                
+        }        
 	/**
 	 * Performs the AJAX validation.
 	 * @param DocumentsInbound $model the model to be validated
@@ -170,4 +195,17 @@ class DocumentsInboundController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+        public function getLogs($id)
+        {
+ /*           $logController = Yii::app()->createController('log/index');
+            LogController::actionview($id);
+            $this->render('log/index',array(
+			'log/model'=>$this->loadModel($id),
+		));
+        
+  * 
+  */
+          }
+        
 }

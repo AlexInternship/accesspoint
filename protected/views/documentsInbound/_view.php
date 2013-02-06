@@ -33,11 +33,37 @@
 	<?php echo CHtml::encode($data->received_date); ?>
 	<br />
         
-        <b><?php echo CHtml::encode($data->getAttributeLabel('log')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
-	<br />
+        <?php 
+        
+              $array = $this->getLogs($data->id);
+        $c = $array.lenght();
+        
+        foreach ($array as $item){
+            
+                $log_id = $item-> 
+                 echo '<a href="http://localhost/accesspoint/index.php?r=log/view&id='.$log_id->id.'">log</a>';
+                 }?> 
 
 	<?php /*
+         * 
+         <b><?php echo CHtml::encode($data->getAttributeLabel('log')); ?>:</b>
+
+                         
+       	<?php echo CHtml::button(CHtml::encode('logs'), array($this->getLogs($data->id))); ?>
+	<br />
+          
+         
+        <?php
+        $relation = $this->getRelations($data->id);
+        php?>
+         *          
+        <b><?php echo CHtml::link($data->getAttributeLabel('log',array('view', 'id'=>$data->id))); ?>:</b>
+	<br /> 
+        
+        <?php echo CHtml::link(CHtml::encode('Log'), array('view', 'id'=>$this->getRelations())); ?>
+	
+         * ,array($this->getRelations($data->id)
+         
 	<b><?php echo CHtml::encode($data->getAttributeLabel('document_data')); ?>:</b>
 	<?php echo CHtml::encode($data->document_data); ?>
 	<br />
