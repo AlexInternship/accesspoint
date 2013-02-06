@@ -124,7 +124,7 @@ class LogController extends Controller
 	{
 		$dataProvider=new CActiveDataProvider('Log');
 		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+			'dataProvider'=>$dataProvider,'test' => 'test'
 		));
 	}
 

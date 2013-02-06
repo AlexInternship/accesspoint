@@ -52,7 +52,7 @@ class DocumentsOutboundController extends Controller
 	public function actionView($id)
 	{
 		$this->render('view',array(
-			'model'=>$this->loadModel($id),
+			'model'=>$this->loadModel($id)
 		));
 	}
 
@@ -66,7 +66,7 @@ class DocumentsOutboundController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+                $logID = ModelName::log()->findByAttributes(array('document_type' => 'document_outbound','document_id' => '2'));
 		if(isset($_POST['DocumentsOutbound']))
 		{
 			$model->attributes=$_POST['DocumentsOutbound'];
@@ -75,7 +75,7 @@ class DocumentsOutboundController extends Controller
 		}
 
 		$this->render('create',array(
-			'model'=>$model,
+			'model'=>$model, 'logid' =>$logID,
 		));
 	}
 

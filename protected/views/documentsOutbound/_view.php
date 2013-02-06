@@ -32,11 +32,10 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('document_type')); ?>:</b>
 	<?php echo CHtml::encode($data->document_type); ?>
 	<br />
-        
-        <b><?php echo CHtml::encode($data->getAttributeLabel('log')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
+        <b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
+	<?php echo CHtml::link(CHtml::encode($data->id), array('log', 'view', 'id'=>$data->id)); ?>
 	<br />
-        
+  
         
 	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('process_type')); ?>:</b>

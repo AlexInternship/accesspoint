@@ -67,7 +67,7 @@ class DocumentsOutbound extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-                    'log' => array(self::BELONGS_TO, 'Log', 'id'),
+                    'log' => array(self::HAS_MANY, 'Log', 'document_id'),
 		);
 	}
 
@@ -121,6 +121,7 @@ class DocumentsOutbound extends CActiveRecord
 		$criteria->compare('status',$this->status,true);
 		$criteria->compare('biztalkqueue_id',$this->biztalkqueue_id);
 		$criteria->compare('sync_date',$this->sync_date,true);
+                $criteria->compare('test','meget_test',true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
