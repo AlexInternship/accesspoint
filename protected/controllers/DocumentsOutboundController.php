@@ -2,8 +2,7 @@
 
 class DocumentsOutboundController extends Controller
 {
-        public $logID = '';
-         /**
+	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
@@ -122,12 +121,10 @@ class DocumentsOutboundController extends Controller
 	 * Lists all models.
 	 */
 	public function actionIndex()
-	{       
-                $logID = Log::model()->find;
-                $this->logID = $logID->logID;
+	{
 		$dataProvider=new CActiveDataProvider('DocumentsOutbound');
 		$this->render('index',array(
-			'dataProvider'=>$dataProvider,'logID'=>  $this->logID
+			'dataProvider'=>$dataProvider,
 		));
 	}
 
