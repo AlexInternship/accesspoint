@@ -60,9 +60,17 @@ class DocumentsInbound extends CActiveRecord
 	{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
-		return array(
-                    'log' => array(self::HAS_MANY, 'log', array('document_table'=>'documents_inbound'))
+		
+            /*
+                return array(
+                    'log' => array(self::HAS_MANY, 'log', 'document_table'=>'documents_inbound')
 		);
+             * 
+             */
+            
+                return array(
+                  'logs' => array(self::HAS_MANY,'documentOutboundLogs', 'id')  
+                );
 	}
 
 	/**

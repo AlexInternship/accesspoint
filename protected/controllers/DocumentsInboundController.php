@@ -1,5 +1,4 @@
 <?php
-include_once 'logController.php';
 
 
 class DocumentsInboundController extends Controller
@@ -157,6 +156,8 @@ class DocumentsInboundController extends Controller
 	 */
 	public function loadModel($id)
 	{
+            
+                
 		$model=DocumentsInbound::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
@@ -165,6 +166,16 @@ class DocumentsInboundController extends Controller
         
         public function getRelations($id)
         {       
+            
+                $documents=  DocumentsInbound::model()->findByPk($id);
+                $logs=$documents->log();
+                if($logs===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		
+                
+                
+                return $model;
+            /**
                 $relation=  DocumentsInbound::model()->relations();
                 $array=null;
                 foreach ($relation as $value){
@@ -181,7 +192,7 @@ class DocumentsInboundController extends Controller
                 $this->render('log',array(
 			'model'=>$array,
 		));
-                
+              **/  
         }        
 	/**
 	 * Performs the AJAX validation.

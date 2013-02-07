@@ -33,27 +33,34 @@
 	<?php echo CHtml::encode($data->received_date); ?>
 	<br />
         
-        <?php 
-        
-              $array = $this->getLogs($data->id);
-        $c = $array.lenght();
-        
-        foreach ($array as $item){
-            
-                $log_id = $item-> 
-                 echo '<a href="http://localhost/accesspoint/index.php?r=log/view&id='.$log_id->id.'">log</a>';
-                 }?> 
-
-	<?php /*
-         * 
-         <b><?php echo CHtml::encode($data->getAttributeLabel('log')); ?>:</b>
-
-                         
-       	<?php echo CHtml::button(CHtml::encode('logs'), array($this->getLogs($data->id))); ?>
-	<br />
-          
-         
         <?php
+        $logs = $this->getLogs($data->id);
+        for ($i = 0; $i < sizeof($logs); $i++) { 
+          
+            $currentDocumentId = $logs[$i][4];
+            $currentLogId = $logs[$i][3];
+            if($data->id==$currentLogId){?>
+            <b><?php echo CHtml::encode($data->getAttributeLabel('log')); ?>:</b>
+            <?php echo CHtml::link($currentLogId, array('logs', 'id'=>$currentLogId)); ?>
+            <br />         
+        <?php    
+        }
+        ?>
+        
+        <?php
+        }
+        ?>
+     
+
+        <b><?php echo CHtml::encode($data->getAttributeLabel('log')); ?>:</b>
+	<?php echo CHtml::link(CHtml::encode($this->getLogId($data->id)), array('logs', 'id'=>$data->id)); ?>
+	<br />         
+       	 
+        <?php
+        
+        
+        /*
+         * 
         $relation = $this->getRelations($data->id);
         php?>
          *          
