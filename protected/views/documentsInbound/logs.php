@@ -11,8 +11,8 @@ $this->breadcrumbs=array(
 );
 
 ?>
-
-<h1>View Document#<?php echo $model->id; ?> with log id#<?php echo $this->getLogId()->id; ?></h1>
+gm
+<h1>Log id#<?php echo $this->getLogId()->id; ?></h1>
 
 
 <?php 

@@ -39,9 +39,9 @@
           
             $currentDocumentId = $logs[$i][4];
             $currentLogId = $logs[$i][3];
-            if($data->id==$currentLogId){?>
+            if($data->id==$currentDocumentId){?>
             <b><?php echo CHtml::encode($data->getAttributeLabel('log')); ?>:</b>
-            <?php echo CHtml::link($currentLogId, array('logs', 'id'=>$currentLogId)); ?>
+            <?php echo CHtml::link($currentLogId, array('log', 'id'=>$currentLogId)); ?>
             <br />         
         <?php    
         }
